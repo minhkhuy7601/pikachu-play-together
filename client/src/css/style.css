@@ -1,0 +1,399 @@
+:root {
+  --black-color: rgb(20, 40, 80);
+  --white-color: #fff;
+  --pink-color: #e78ea9;
+  --gray-color: #dbe2ef;
+  --dark-blue-color: #112d4e;
+  --green-color: #00dac3;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  font-family: "Space Mono", monospace;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.grid {
+  display: grid;
+}
+
+.container {
+  width: 100%;
+  max-width: 1620px;
+  padding: 0 50px;
+  margin: auto;
+}
+
+/* MODAL GAME OVER */
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(20, 40, 80, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-game {
+  background-color: var(--white-color);
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.modal-game__title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.modal-game__btn {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-game__btn button {
+  background-color: var(--pink-color);
+  color: var(--white-color);
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  border: none;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.modal-game__btn button:hover {
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* UI MENU */
+
+.ui-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding-top: 100px;
+  height: 100vh;
+}
+#videoBg {
+  width: 100vw;
+  /* height: 100vh; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#logo {
+  width: 350px;
+}
+
+#text-introduce {
+  width: 480px;
+  margin-top: 30px;
+  text-align: center;
+  color: #112d4e;
+  font-size: 1.2rem;
+}
+
+.menuGame {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.menuGame > * ~ * {
+  margin-left: 20px;
+}
+
+.btn {
+  font-weight: 600;
+  border: solid 1px var(--black-color);
+  outline: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.08rem;
+  background-color: var(--white-color);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.menuGame__btn {
+  padding: 0.5rem 2.5rem;
+}
+
+.menuGame__btn:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--pink-color);
+  z-index: -1;
+  border-radius: 5px;
+  border: solid 1px var(--black-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.menuGame__btn:hover:after {
+  top: 0.2rem;
+  left: 0.2rem;
+}
+
+/* UI GAME PLAY 1 PLAYER */
+.functionBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 15px;
+  left: 0;
+  width: 100%;
+}
+
+.functionBox .functionBox__btn button {
+  padding: 0.7rem;
+  background-color: var(--white-color);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: all 0.3s ease;
+}
+
+.functionBox .functionBox__btn button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: var(--green-color);
+}
+
+.functionBox .functionBox__btn button:hover i {
+  color: var(--white-color);
+}
+
+.functionBox .functionBox__btn button i {
+  font-size: 1.5rem;
+  color: var(--dark-blue-color);
+}
+
+.functionBox .functionBox__progress {
+  width: 500px;
+  height: 40px;
+  border: 5px solid var(--dark-blue-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.functionBox .functionBox__progress .functionBox__progress__bar {
+  width: 0;
+  height: 100%;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.36, 0.55, 0.63, 0.48);
+  background-color: var(--green-color);
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%23008386' fill-opacity='0.7' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.functionBox .functionBox__info {
+  border: 1px dashed var(--dark-blue-color);
+  padding: 0.3rem;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  background-color: var(--white-color);
+}
+.functionBox .functionBox__info__name {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.functionBox .functionBox__info__point {
+  font-size: 1.5rem;
+}
+
+.wrap-game-play {
+  background-image: url(/client/assets/images/bg5.jpg);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  /* height: 100%; */
+  position: fixed;
+  left: 0;
+  top: 35px;
+}
+
+/* GRID */
+.grid-col-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-col-2 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-col-3 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-col-4 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* TABLET DEVICE */
+@media only screen and (max-width: 900px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  #videoBg {
+    height: 100vh;
+    width: auto;
+  }
+
+  /* GAME PLAY UI */
+  canvas {
+    top: 22px;
+  }
+  .functionBox {
+    top: 5px;
+  }
+  .functionBox .functionBox__btn button {
+    padding: 0.3rem;
+  }
+
+  .functionBox .functionBox__progress {
+    width: 350px;
+    height: 35px;
+  }
+
+  .functionBox .functionBox__info {
+    width: 150px;
+  }
+
+  .functionBox .functionBox__info__name {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .functionBox .functionBox__info__idRoom {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .functionBox .functionBox__info__point {
+    font-size: 1rem;
+  }
+  /* GRID */
+  .grid-col-md-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid-col-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-col-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-col-md-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* MOBILE DEVICE */
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 13px;
+  }
+  .container {
+    padding: 0 10px;
+  }
+
+  #logo {
+    width: 300px;
+  }
+
+  #text-introduce {
+    width: 300px;
+  }
+
+  .menuGame {
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .menuGame__btn {
+    margin: 5px 0;
+  }
+
+  .functionBox .functionBox__progress {
+    width: 200px;
+    height: 30px;
+  }
+
+  .functionBox .functionBox__info {
+    width: 90px;
+  }
+
+  /* GRID */
+  .grid-col-sm-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid-col-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-col-sm-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-col-sm-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

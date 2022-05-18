@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .ui-room {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #eeeeee;
+        width: 400px;
+        height: 600px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .ui-room__title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        margin-top: 10px;
+      }
+
+      .ui-room__input-name {
+        font-size: 1rem;
+        width: 250px;
+        margin: 50px 0;
+        padding: 3px 10px;
+      }
+
+      .ui-room__btnNewRoom {
+        background-color: #e78ea9;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        transition: all 0.2s ease;
+        margin-bottom: 10px;
+      }
+
+      .ui-room__btnNewRoom:hover {
+        transform: scale(1.1);
+      }
+
+      .ui-room__form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 60%;
+        margin-top: 10px;
+        height: 40px;
+      }
+
+      .ui-room__form__input {
+        border-radius: 5px;
+        padding: 0 10px;
+        width: 65%;
+        font-size: 1rem;
+        height: 100%;
+        border: none;
+      }
+
+      .ui-room__form__btn {
+        width: 30%;
+        height: 100%;
+        background-color: #00dac3;
+        border: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="videoBg" autoplay muted loop>
+      <source src="./assets/video/videoBg1.mp4" type="video/mp4" />
+      <source src="./assets/video/videoBg1.ogg" type="video/ogg" />
+    </video>
+    <div class="container">
+      <div class="ui-room">
+        <img id="logo" src="./assets/images/logo.png" alt="" />
+        <h2 class="ui-room__title">2 Player</h2>
+        <input
+          id="input-name"
+          class="ui-room__input-name"
+          type="text"
+          placeholder="Enter your name"
+        />
+        <button class="btn ui-room__btnNewRoom">Create room</button>
+        <div>Or</div>
+        <form class="ui-room__form">
+          <input
+            class="ui-room__form__input"
+            type="text"
+            placeholder="Enter ID room"
+          />
+          <button class="btn ui-room__form__btn">Join</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

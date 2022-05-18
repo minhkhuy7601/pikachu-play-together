@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .ui-room {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #eeeeee;
+        width: 400px;
+        height: 600px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .ui-room__title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        margin-top: 10px;
+      }
+
+      .ui-room__idRoom {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        width: 70%;
+        /* border: 1px solid red; */
+      }
+
+      .ui-room__idRoom__btnBack {
+        padding: 0.8rem;
+        border-radius: 10px;
+        background-color: #fd5d5d;
+        border: none;
+      }
+
+      .ui-room__idRoom__id {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        padding: 0 10px;
+        font-size: 1.5rem;
+        font-weight: 400;
+        border-radius: 10px;
+        height: 100%;
+        border: 1px solid #8d8daa;
+      }
+
+      .ui-room__idRoom__id span {
+        font-weight: 700;
+      }
+
+      .ui-room__listPlayers {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        border: 1px solid #8d8daa;
+        border-radius: 10px;
+        padding: 10px 0;
+        box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+          rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+      }
+
+      .ui-room__listPlayers__player {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
+      }
+
+      .ui-room__listPlayers__player__name {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 5px;
+      }
+
+      .ui-room__listPlayers__player__name.waiting {
+        color: rgb(134, 132, 132);
+      }
+
+      .ui-room__listPlayers__player__img.pokeball {
+        max-width: 50%;
+      }
+
+      .ui-room__btn-start {
+        margin-top: 20px;
+        background-color: #4b7be5;
+        color: white;
+        padding: 0.7rem 2rem;
+        border: none;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="videoBg" autoplay muted loop>
+      <source src="./assets/video/videoBg1.mp4" type="video/mp4" />
+      <source src="./assets/video/videoBg1.ogg" type="video/ogg" />
+    </video>
+    <div class="container">
+      <div class="ui-room">
+        <img id="logo" src="./assets/images/logo.png" alt="" />
+        <h2 class="ui-room__title">2 Player</h2>
+        <p>Waiting room</p>
+        <div class="ui-room__idRoom">
+          <div class="ui-room__idRoom__btnBack btn">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div class="ui-room__idRoom__id">ID room: <span>12323</span></div>
+        </div>
+        <div class="ui-room__listPlayers">
+          <div class="ui-room__listPlayers__player">
+            <img
+              src="./assets/images/pokeball.png"
+              class="ui-room__listPlayers__player__img pokeball"
+              alt=""
+            />
+            <div class="ui-room__listPlayers__player__name waiting">
+              Waiting...
+            </div>
+          </div>
+          <div class="ui-room__listPlayers__player">
+            <img
+              src="./assets/images/animationPikachu.gif"
+              class="ui-room__listPlayers__player__img"
+              alt=""
+            />
+            <div class="ui-room__listPlayers__player__name">Neo</div>
+          </div>
+        </div>
+        <div class="ui-room__btn-start btn">Start</div>
+      </div>
+    </div>
+  </body>
+</html>
